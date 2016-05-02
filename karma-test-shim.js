@@ -73,8 +73,8 @@ Promise.all([
   var testing = providers[0];
   var testingBrowser = providers[1];
 
-  testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_PLATFORM_PROVIDERS,
-    testingBrowser.TEST_BROWSER_APPLICATION_PROVIDERS);
+  testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 }).then(function() {
   // Finally, load all spec files.

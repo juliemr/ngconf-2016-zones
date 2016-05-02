@@ -18,11 +18,11 @@
     "test": "karma start karma.conf.js"
   },
   "dependencies": {
-    "@angular/common": "0.0.0-3",
-    "@angular/compiler": "0.0.0-3",
-    "@angular/core": "0.0.0-3",
-    "@angular/platform-browser": "0.0.0-3",
-    "@angular/platform-browser-dynamic": "0.0.0-3",
+    "@angular/common": "0.0.0-5",
+    "@angular/compiler": "0.0.0-5",
+    "@angular/core": "0.0.0-5",
+    "@angular/platform-browser": "0.0.0-5",
+    "@angular/platform-browser-dynamic": "0.0.0-5",
     "clang-format": "^1.0.35",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.35.0",
