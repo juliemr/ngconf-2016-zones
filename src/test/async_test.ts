@@ -31,12 +31,17 @@ import { Injectable, Component, provide } from '@angular/core';
 class WeatherService {
   getTemp(zip: number) {
     // Call out to our very slow and accurate weather API.
-    console.log('making a new promise');
+    // TODO(julie): Change this to use a real setTimeout when
+    // https://github.com/angular/angular/issues/8389 is resolved.
+
+    // return new Promise((resolve, reject) => {
+    //   console.log('setting timeout');
+    //   setTimeout(() => {
+    //     resolve(zip == 84111 ? 70 : 60);
+    //   }, 10);
+    // });
     return new Promise((resolve, reject) => {
-      console.log('setting timeout');
-      setTimeout(() => {
-        resolve(zip == 84111 ? 70 : 60);
-      }, 10);
+      resolve(zip == 84111 ? 70 : 60);
     });
   }
 }
@@ -91,8 +96,22 @@ describe('weather app', () => {
         fixture.debugElement.query(By.css('button')).nativeElement.click();
 
         setTimeout(() => {
-          expect(fixture.debugElement.query(By.css('span')).nativeElement.text).toEqual('70');
+          fixture.detectChanges();
+          expect(fixture.debugElement.query(By.css('span')).nativeElement.textContent).toEqual('70');
         }, 200);
+      });
+    }));
+
+    it('should show temperature - using fixture stability', async(() => {
+      builder.createAsync(WeatherWidget).then((fixture: ComponentFixture<WeatherWidget>) => {
+        fixture.autoDetectChanges();
+        fixture.debugElement.query(By.css('#w-zip')).nativeElement.value = '84111';
+        fixture.debugElement.query(By.css('button')).nativeElement.click();
+
+        fixture.whenStable().then((waited) => {
+          expect(waited).toBe(true);
+          expect(fixture.debugElement.query(By.css('span')).nativeElement.textContent).toEqual('70');
+        });
       });
     }));
   });
