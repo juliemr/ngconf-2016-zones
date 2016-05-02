@@ -95,5 +95,19 @@ describe('weather app', () => {
         }, 200);
       });
     }));
+
+    fit('should show temperature - 2', async(() => {
+      builder.createAsync(WeatherWidget).then((fixture: ComponentFixture<WeatherWidget>) => {
+        fixture.autoDetectChanges();
+        fixture.debugElement.query(By.css('#w-zip')).nativeElement.value = '84111';
+        fixture.debugElement.query(By.css('button')).nativeElement.click();
+
+        console.log('calling whenStable');
+        fixture.whenStable().then((waited) => {
+          expect(waited).toBe(true);
+          expect(fixture.debugElement.query(By.css('span')).nativeElement.text).toEqual('70');
+        });
+      });
+    }));
   });
 });
