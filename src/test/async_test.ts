@@ -31,17 +31,10 @@ import { Injectable, Component, provide } from '@angular/core';
 class WeatherService {
   getTemp(zip: number) {
     // Call out to our very slow and accurate weather API.
-    // TODO(julie): Change this to use a real setTimeout when
-    // https://github.com/angular/angular/issues/8389 is resolved.
-
-    // return new Promise((resolve, reject) => {
-    //   console.log('setting timeout');
-    //   setTimeout(() => {
-    //     resolve(zip == 84111 ? 70 : 60);
-    //   }, 10);
-    // });
     return new Promise((resolve, reject) => {
-      resolve(zip == 84111 ? 70 : 60);
+      setTimeout(() => {
+        resolve(zip == 84111 ? 70 : 60);
+      }, 10);
     });
   }
 }
@@ -66,7 +59,7 @@ class WeatherWidget {
   }
 }
 
-describe('weather app', () => {
+fdescribe('weather app', () => {
   var builder;
 
   beforeEachProviders(() => [
