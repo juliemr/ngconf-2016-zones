@@ -1,9 +1,10 @@
 ## Intro
 
-This repository is an example Angular2 application, with a focus on showing how
-unit tests can be written and run.
+Examples from ngConf 2016, Testing your Tasks.
 
-For a full-service starter application, try [angular-cli](https://github.com/angular/angular-cli).
+(Links to presentation and video will be here once they're up).
+
+For a full-service starter application with testing setup, try [angular-cli](https://github.com/angular/angular-cli).
 
 ## Software Prerequisites
 
@@ -30,7 +31,7 @@ Use npm to get dependencies:
 Take a look at the `src` folder. All application and test code, as well as
 some configuration files, are in here. The `app` folder contains the actual
 application code, written in TypeScript, as well as associated template and
-css files. The `test` folder contains unit tests.
+css files. The `test` folder contains the example unit tests.
 
 ## The Build/Test Pipeline
 
@@ -84,16 +85,5 @@ This will start a persistent process which will re-run tests whenever the `.js`
 compiled files are changed. If you have the watch process running, that will
 trigger the tests to run whenever you change the `.ts` source files.
 
-You can see the Karma configuration at `karma.conf.js`. A few things are notable:
-
- - It grabs Angular by including the `angular2` and `testing.js` files from
- `node_modules/angular2/bundles/`.
-
- - The compiled JavaScript files at `src/**/*.js` are served and watched but _not_ included.
- This means that Karma will not run them automatically.
-
- - To get file imports to work correctly in Karma, we must include `systemjs`
- from the node_modules folder, as well as the helper file `karma-test-shim.js`.
- This shim file uses System.js to load the JavaScript files which Karma served
- but did not automatically run.
+You can see the Karma configuration at `karma.conf.js`.
  
