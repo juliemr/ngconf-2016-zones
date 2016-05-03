@@ -73,7 +73,9 @@ To see the app, run
 
 `npm run serve`
 
-and navigate to `localhost:9090/built/index.html`.
+and navigate to `localhost:9090/built/`.
+
+Zone examples are at `localhost:9090/zone_egs/`.
 
 ### Test
 
