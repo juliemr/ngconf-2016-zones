@@ -8,7 +8,7 @@ function init() {
 
   var eastZone = Zone.current.fork({
     name: 'East zone'
-  })
+  });
 
   function handleClick() {
     console.log('click from zone: ' + Zone.current.name);
@@ -20,5 +20,5 @@ function init() {
 
   eastZone.run(function() {
     eastButton.onclick = handleClick;
-  })
+  });
 }
