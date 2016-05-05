@@ -2,7 +2,9 @@
 
 Examples from ngConf 2016, Testing your Tasks.
 
-(Links to presentation and video will be here once they're up).
+[Talk Video](https://www.youtube.com/watch?v=DltUEDy7ItY)
+
+[Presentation Slides](https://goo.gl/XIcvCd)
 
 For a full-service starter application with testing setup, try [angular-cli](https://github.com/angular/angular-cli).
 
