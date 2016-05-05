@@ -15,7 +15,9 @@
     "build": "tsc && npm run copy",
     "watch": "tsc --watch",
     "serve": "http-server -p 9090 -c-1",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "copydist": "cp node_modules/zone.js/dist/zone.js dist/; cp node_modules/reflect-metadata/Reflect.js dist/; cp src/styles.css dist/",
+    "bundle": "npm run copydist && node system-bundle.js"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.1",
@@ -40,6 +42,7 @@
     "karma-cli": "^0.0.4",
     "karma-jasmine": "^0.3.6",
     "rimraf": "^2.4.3",
+    "systemjs-builder": "^0.15.16",
     "typescript": "1.8.10",
     "typings": "^0.6.6"
   }

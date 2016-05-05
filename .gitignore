@@ -4,6 +4,10 @@ node_modules
 
 # Compiled output
 built/
+dist/bundle.js
+dist/Reflect.js
+dist/styles.css
+dist/zone.js
 
 # Typescript typings
 typings/
