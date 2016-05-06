@@ -39,6 +39,10 @@ button {
 button:hover {
   background-color: rgb(18, 164, 45);
 }
+button[disabled] {
+  background-color: rgb(180, 180, 180);
+  cursor: default;
+}
 hr {
   height: 1px;
   background-color: rgb(50, 50, 50);

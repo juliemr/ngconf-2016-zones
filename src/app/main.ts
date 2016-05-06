@@ -61,6 +61,7 @@ class NgZoneDemoComponent {
     <h3>{{content[index]}}</h3>
     <button (click)="start()">Start</button>
     <button (click)="startTestFriendly()">Start (test friendly)</button>
+    <button (click)="stop()" [disabled]="intervalId == 0">Stop</button>
     <div>
       <p class="note">Try copying this into the console to see how Protractor would test for stability:
       window.getAngularTestability(document.querySelector('my-carousel')).whenStable(function() {console.log('Stable!')});
@@ -74,11 +75,12 @@ class CarouselComponent {
     'Kittens with yarn!',
     'Inspirational quote'
   ];
+  intervalId: any = 0;
 
   constructor(public ngZone: NgZone) {}
 
   start() {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.index = (this.index + 1) % this.content.length;
     }, 1000);
   }
@@ -87,7 +89,7 @@ class CarouselComponent {
     // Run the set interval outside of Angular so that
     // testability will report stable.
     this.ngZone.runOutsideAngular(() => {
-      setInterval(() => {
+      this.intervalId = setInterval(() => {
         // We need to re-enter the Angular zone, or else
         // the binding will never update.
         this.ngZone.run(() => {
@@ -95,6 +97,11 @@ class CarouselComponent {
         });
       }, 1000);
     });
+  }
+
+  stop() {
+    clearInterval(this.intervalId);
+    this.intervalId = 0;
   }
 }
 
