@@ -39,3 +39,8 @@ button {
 button:hover {
   background-color: rgb(18, 164, 45);
 }
+hr {
+  height: 1px;
+  background-color: rgb(50, 50, 50);
+  border: 0;
+}
