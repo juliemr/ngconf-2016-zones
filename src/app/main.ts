@@ -13,7 +13,8 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
   template: `
     <div>Progress: {{progress}}</div>
     <button (click)="go()">Go</button>
-    <button (click)="goOutsideAngular()">Go (outside Angular Zone)</button>`
+    <button (click)="goOutsideAngular()">Go (outside Angular Zone)</button>
+    <div><p class="note">Open console to see progress</div>`
 })
 class NgZoneDemoComponent {
   progress: number = 0;
@@ -59,7 +60,11 @@ class NgZoneDemoComponent {
   template: `
     <h3>{{content[index]}}</h3>
     <button (click)="start()">Start</button>
-    <button (click)="startTestFriendly()">Start (test friendly)</button>`
+    <button (click)="startTestFriendly()">Start (test friendly)</button>
+    <div>
+      <p class="note">Try copying this into the console to see how Protractor would test for stability:
+      window.getAngularTestability(document.querySelector('my-carousel')).whenStable(function() {console.log('Stable!')});
+    </div>`
 })
 class CarouselComponent {
   index: number = 0;

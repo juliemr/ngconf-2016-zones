@@ -44,3 +44,8 @@ hr {
   background-color: rgb(50, 50, 50);
   border: 0;
 }
+.note {
+  font-size: .5em;
+  color: rgb(100, 100, 100);
+  font-style: italic;
+}
