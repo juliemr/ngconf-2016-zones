@@ -1,4 +1,5 @@
-import {Component, NgZone} from '@angular/core';
+import {Component, NgZone, provide} from '@angular/core';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, Routes, Route} from '@angular/router';
 
 import {bootstrap} from '@angular/platform-browser-dynamic';
@@ -56,7 +57,7 @@ class NgZoneDemoComponent {
 @Component({
   selector: 'my-carousel',
   template: `
-    <div>{{content[index]}}</div>
+    <h3>{{content[index]}}</h3>
     <button (click)="start()">Start</button>
     <button (click)="startTestFriendly()">Start (test friendly)</button>`
 })
@@ -97,6 +98,7 @@ class CarouselComponent {
   template: `
     <a [routerLink]="['/']">Zone Demo</a>
     <a [routerLink]="['./carousel']">Carousel</a>
+    <hr>
     <router-outlet>`,
   directives: [ROUTER_DIRECTIVES]
 })
@@ -108,4 +110,4 @@ class EntryComp {
 
 }
 
-bootstrap(EntryComp, ROUTER_PROVIDERS);
+bootstrap(EntryComp, [ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy })]);
