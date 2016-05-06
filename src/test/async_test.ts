@@ -59,7 +59,7 @@ class WeatherWidget {
   }
 }
 
-fdescribe('weather app', () => {
+describe('weather app', () => {
   var builder;
 
   beforeEachProviders(() => [
